@@ -38,4 +38,31 @@ router.post('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/',(req,res,next)=>{
+    var params = {
+        TableName: "PendingApprovalRequest",
+        KeyConditionExpression: "#userId = :userId and begins_with(#dataSourceId, :s)",
+        ExpressionAttributeNames:{
+            "#userId": "userId",
+            "#dataSourceId":"dataSourceId"
+        },
+        ExpressionAttributeValues: {
+            ":userId":'nanofaroque',
+            ":s":'nanofaroque'
+        }
+    };
+    let result;
+
+    docClient.query(params,(err,data)=>{
+        if (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Added item:", JSON.stringify(data, null, 2));
+            result=data;
+            res.send(result);
+        }
+    });
+
+
+})
 module.exports = router;
