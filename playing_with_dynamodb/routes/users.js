@@ -84,6 +84,7 @@ router.get('/', (req, res, next) => {
     };
     let result;
 
+    //https://stackoverflow.com/questions/15043043/how-to-use-batchgetitem-for-the-nodejs-aws-sdk-for-dynamodb/21791714
     docClient.batchGet(params, (err, data) => {
         if (err) {
             console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
