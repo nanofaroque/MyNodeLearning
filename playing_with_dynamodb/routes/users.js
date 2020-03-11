@@ -10,16 +10,16 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 /* GET users listing. */
 router.post('/', function(req, res, next) {
 
-    var table = "PendingApprovalRequest";
+    var table = "DatasourceUsers";
 
-    var userId = 'nanofaroque';
+    var userId = 'nanofaroque1';
     var dataSourceId = "nanofaroque#The Big New Movie";
 
     var params = {
         TableName:table,
         Item:{
             "userId": userId,
-            "dataSourceId": dataSourceId,
+            "datasourceId": dataSourceId,
             "info":{
                 "plot": "Nothing happens at all.",
                 "rating": 0
