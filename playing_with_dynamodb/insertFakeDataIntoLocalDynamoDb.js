@@ -6,14 +6,14 @@ AWS.config.update({
 let docClient = new AWS.DynamoDB.DocumentClient();
 
 
-let table = "DataSources";
+let table = "DataSources-Test";
 
 function insertIndoDynamoDB(id) {
     let moment = require('moment');
     let params = {
         TableName: table,
         Item: {
-            "id": '' + id, //POSIX group
+            "p_key": '' + id, //POSIX group
             "sort_key": 'DataSource#' + id,
             'created_at': JSON.stringify(moment().format()),
             'updated_at': JSON.stringify(moment().format()),
