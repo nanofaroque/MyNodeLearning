@@ -6,5 +6,8 @@
  use like below: 
 
  let result = await asyncfunctionName();
+ 
+ # Javascript function binding
+ https://javascript.info/bind
 
 
